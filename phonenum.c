@@ -2,7 +2,21 @@
 #include <string.h>
 #include "phonenum.h"
 
-//int createPhonenum(PhoneNum *p){};
+int createPhonenum(PhoneNum *p){
+	printf("이름 : ");
+	scanf("%s", p->name);
+	printf("전화번호 : ");
+	scanf("%s", p->phonenum);
+	printf("관계 : ");
+	scanf("%s", p->relative);
+	printf("생일(MMDD) : ");
+	scanf("%s", p->birth);
+	printf("주소 : ");
+	scanf("%s", p->address);
+	printf(">>추가 완료<<\n");
+
+	return 1;
+}
 //void readPhonenum(PhoneNum p){};
 //int updatePhoneNum(PhoneNum *p){};
 //int deletePhoneNum(PhoneNum *p){};
