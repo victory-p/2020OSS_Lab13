@@ -13,7 +13,6 @@ int main(){
 		if(menu != 1 && menu != 2)break;
 		if(menu == 1){
 			readPhonenum(slist[0]);
-			printf("1번\n");
 		}
 		if(menu == 2){
 			count+=createPhonenum(&slist[curcount++]);
