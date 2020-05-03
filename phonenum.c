@@ -10,7 +10,7 @@ int createPhonenum(PhoneNum *p){
 	printf("- 관계 : ");
 	scanf("%s", p->relative);
 	printf("- 생일(MMDD) : ");
-	scanf("%s", p->birth);
+	scanf("%s",p->birth);
 	printf("- 주소 : ");
 	getchar();
 	scanf("%[^\n]s", p->address);
@@ -26,7 +26,20 @@ void readPhonenum(PhoneNum p){
 //int updatePhoneNum(PhoneNum *p){};
 //int deletePhoneNum(PhoneNum *p){};
 
-//int selectMenu(){};
+int selectMenu(){
+	int menu;
+	printf("\n============Phone Book=============\n");
+	printf("1. 조회\n");
+	printf("2. 추가\n");
+	printf("3. 수정\n");
+	printf("4. 삭제\n");
+	printf("5. 데이터 저장\n");
+	printf("6. 검색\n");
+	printf("0. 종료\n");
+	printf("=> 원하는 메뉴는? ");
+	scanf("%d",&menu);
+	return menu;
+}
 //void listPhoneNum(PhoneNum *p,int count){};
 //int selectDataNo(PhoneNum *p, int count){};
 
