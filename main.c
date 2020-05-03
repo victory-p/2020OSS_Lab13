@@ -9,9 +9,8 @@ int main(){
 
 		
 	while(1){
-		printf("입력하세요: ");
-		scanf("%d",&menu);
-		if(menu == 0)break;
+		menu=selectMenu();
+		if(menu != 1 && menu != 2)break;
 		if(menu == 1){
 			readPhonenum(slist[0]);
 			printf("1번\n");
