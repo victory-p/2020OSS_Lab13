@@ -18,7 +18,11 @@ int createPhonenum(PhoneNum *p){
 
 	return 1;
 }
-//void readPhonenum(PhoneNum p){};
+void readPhonenum(PhoneNum p){
+	if(p.phonenum[0] == '-') return;
+
+	printf("%s %s %s %s %s\n", p.name, p.phonenum, p.relative, p.birth, p.address);
+}
 //int updatePhoneNum(PhoneNum *p){};
 //int deletePhoneNum(PhoneNum *p){};
 
