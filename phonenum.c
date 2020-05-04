@@ -63,7 +63,15 @@ int selectMenu(){
 	scanf("%d",&menu);
 	return menu;
 }
-//void listPhoneNum(PhoneNum *p,int count){};
+void listPhoneNum(PhoneNum *p,int count){
+	printf("Name / Phonenum / Relation / Birth / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum == "-") continue;
+		printf("%2d", i +1);
+		readPhonenum(p[i]);
+	}
+}
 //int selectDataNo(PhoneNum *p, int count){};
 
 void saveData(PhoneNum p[], int count){

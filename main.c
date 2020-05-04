@@ -13,9 +13,7 @@ int main(){
 		menu=selectMenu();
 		if(menu < 1 || menu > 9)break;
 		if(menu == 1){
-			readPhonenum(slist[0]);
-			readPhonenum(slist[1]);
-			readPhonenum(slist[2]);
+			listPhoneNum(slist,count);
 		}
 		if(menu == 2){
 			count+=createPhonenum(&slist[curcount++]);
