@@ -72,7 +72,15 @@ void listPhoneNum(PhoneNum *p,int count){
 		readPhonenum(p[i]);
 	}
 }
-//int selectDataNo(PhoneNum *p, int count){};
+
+int selectDataNo(PhoneNum *p, int count){
+	int num;
+	listPhoneNum(p, count);
+	printf("=> 선택할 데이터 번호는?(취소 : 0) ");
+	scanf("%d", &num);
+
+	return num;
+}
 
 void saveData(PhoneNum p[], int count){
 	FILE *fp;
