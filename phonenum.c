@@ -70,12 +70,28 @@ void saveData(PhoneNum p[], int count){
 	FILE *fp;
 	fp=fopen("Phonebook.txt","wt");
 	for(int i=0;i<count; i++){
-		if(p[i].phonenum != "-") fprintf(fp,"%s %s %s %s %s\n", p->name, p->phonenum, p->relative, p->birth, p->address);
+		printf("count: %d\n",count);
+		if(p[i].phonenum != "-") fprintf(fp,"%s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relative, p[i].birth, p[i].address);
 	}	
 	fclose(fp);
 	printf("저장됨! \n");
 }
-//int loadData(PhoneNum p[]){};
+int loadData(PhoneNum p[]){
+	int count=0;
+	FILE *fp;
+	fp=fopen("Phonebook.txt","rt");
+	if(fp == NULL){
+		printf("파일 없음\n");
+		return 0;
+	}
+	for( ; ; count++){
+		fscanf(fp,"%s %s %s %s %[^\n]s\n", p[count].name, p[count].phonenum, p[count].relative, p[count].birth, p[count].address);
+	if(feof(fp)) break;
+	}
+	fclose(fp);
+	printf("=> 로딩 성공 \n");
+	return count;
+}
 
 //void searchName(PhoneNum *p, int count){}; //이름 검색 함수
 //void searchPhonenum(PhoneNum *p, int count){};//전화 번호  검색 함수
