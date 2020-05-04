@@ -26,7 +26,6 @@ int main(){
 		if(menu == 0){
 			break;
 		}
-		printf("count : %d",count);
 	}
 return 0;	
 }
