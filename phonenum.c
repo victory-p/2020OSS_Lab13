@@ -66,7 +66,15 @@ int selectMenu(){
 //void listPhoneNum(PhoneNum *p,int count){};
 //int selectDataNo(PhoneNum *p, int count){};
 
-//void saveData(PhoneNum p[], int count){};
+void saveData(PhoneNum p[], int count){
+	FILE *fp;
+	fp=fopen("Phonebook.txt","wt");
+	for(int i=0;i<count; i++){
+		if(p[i].phonenum != "-") fprintf(fp,"%s %s %s %s %s\n", p->name, p->phonenum, p->relative, p->birth, p->address);
+	}	
+	fclose(fp);
+	printf("저장됨! \n");
+}
 //int loadData(PhoneNum p[]){};
 
 //void searchName(PhoneNum *p, int count){}; //이름 검색 함수
