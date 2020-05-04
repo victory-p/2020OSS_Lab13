@@ -41,7 +41,13 @@ int updatePhoneNum(PhoneNum *p){
 
         return 1;
 }
-//int deletePhoneNum(PhoneNum *p){};
+
+int deletePhoneNum(PhoneNum *p){
+	p->phonenum[0] = '-';
+	printf(">>삭제 완료<<\n");
+
+	return 1;
+}
 
 int selectMenu(){
 	int menu;
