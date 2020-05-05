@@ -64,11 +64,11 @@ int selectMenu(){
 	return menu;
 }
 void listPhoneNum(PhoneNum *p,int count){
-	printf("Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
-		printf("%2d", i +1);
+		printf("%d", i +1);
 		readPhonenum(p[i]);
 		}
 	}
@@ -117,12 +117,12 @@ void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	char search[20];
 	printf("=> 검색할 생일 입력 : ");
 	scanf("%s",search);
-	printf("Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
 			if(strstr(p[i].birth,search)){
-				printf("%2d",i+1);
+				printf("%d",i+1);
 				readPhonenum(p[i]);
 				scount++;
 			}
@@ -136,12 +136,12 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	char search[100];
 	printf("=> 검색할 주소 입력 : ");
 	scanf("%s",search);
-	printf("Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
 			if(strstr(p[i].address,search)){
-				printf("%2d",i+1);
+				printf("%d",i+1);
 				readPhonenum(p[i]);
 				scount++;
 			}
