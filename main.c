@@ -43,17 +43,19 @@ int main(){
 			saveData(slist, curcount);
 		}
 		if(menu == 6){
-			int num =0;
-			printf("어떤 것을 검색하고 싶으십니까? : ");
-			scanf("%d",&num);
+			int num =selectSearch();
 			if(num==0){
 				printf("=>취소됨!\n");
 				continue;
 			}
 			switch(num){
-				case 1 :
+				case 4 :
 					searchBirth(slist,curcount);
 					break;
+				case 5 :
+					searchAddress(slist,curcount);
+					break;
+				default : break;
 			}	
 		}
 		if(menu == 0){

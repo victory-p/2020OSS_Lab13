@@ -13,6 +13,7 @@ void readPhonenum(PhoneNum p);
 int updatePhoneNum(PhoneNum *p);
 int deletePhoneNum(PhoneNum *p);
 int selectMenu();
+int selectSearch();
 void listPhoneNum(PhoneNum *p,int count);
 int selectDataNo(PhoneNum *p, int count);
 void saveData(PhoneNum p[], int count);
