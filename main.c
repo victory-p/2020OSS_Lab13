@@ -42,6 +42,20 @@ int main(){
 		if(menu == 5){
 			saveData(slist, curcount);
 		}
+		if(menu == 6){
+			int num =0;
+			printf("어떤 것을 검색하고 싶으십니까? : ");
+			scanf("%d",&num);
+			if(num==0){
+				printf("=>취소됨!\n");
+				continue;
+			}
+			switch(num){
+				case 1 :
+					searchBirth(slist,curcount);
+					break;
+			}	
+		}
 		if(menu == 0){
 			break;
 		}
