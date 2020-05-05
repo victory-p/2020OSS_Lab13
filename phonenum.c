@@ -67,9 +67,10 @@ void listPhoneNum(PhoneNum *p,int count){
 	printf("Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
-		if(p[i].phonenum == "-") continue;
+		if(p[i].phonenum[0] != '-'){
 		printf("%2d", i +1);
 		readPhonenum(p[i]);
+		}
 	}
 }
 
@@ -86,7 +87,7 @@ void saveData(PhoneNum p[], int count){
 	FILE *fp;
 	fp=fopen("Phonebook.txt","wt");
 	for(int i=0;i<count; i++){
-		if(p[i].phonenum != "-") fprintf(fp,"%s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relation, p[i].birth, p[i].address);
+		if(p[i].phonenum[0] != '-') fprintf(fp,"%s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relation, p[i].birth, p[i].address);
 	}	
 	fclose(fp);
 	printf("저장됨! \n");
