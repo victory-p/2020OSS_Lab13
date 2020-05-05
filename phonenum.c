@@ -14,7 +14,7 @@ int createPhonenum(PhoneNum *p){
 	printf("- 주소 : ");
 	getchar();
 	scanf("%[^\n]s", p->address);
-	printf(">>추가 완료<<\n");
+	printf("=> 추가 완료\n");
 
 	return 1;
 }
@@ -37,35 +37,28 @@ int updatePhoneNum(PhoneNum *p){
         printf("- 주소 : ");
         getchar();
         scanf("%[^\n]s", p->address);
-        printf(">>수정 완료<<\n");
+        printf("=> 수정 완료\n");
 
         return 1;
 }
 
 int deletePhoneNum(PhoneNum *p){
 	p->phonenum[0] = '-';
-	printf(">>삭제 완료<<\n");
+	printf("=> 삭제 완료\n");
 
 	return 1;
-	
-	
-	
-	
-	
-	
-	
 }
 
 int selectMenu(){
 	int menu;
 	printf("\n============Phone Book=============\n");
-	printf("1. 조회\n");
-	printf("2. 추가\n");
-	printf("3. 수정\n");
-	printf("4. 삭제\n");
+	printf("1. 연락처 조회\n");
+	printf("2. 연락처 추가\n");
+	printf("3. 연락처 수정\n");
+	printf("4. 연락처 삭제\n");
 	printf("5. 데이터 저장\n");
-	printf("6. 검색\n");
-	printf("0. 종료\n");
+	printf("6. 연락처 검색\n");
+	printf("0. 종료\n\n");
 	printf("=> 원하는 메뉴는? ");
 	scanf("%d",&menu);
 	return menu;
@@ -97,14 +90,14 @@ void saveData(PhoneNum p[], int count){
 		if(p[i].phonenum[0] != '-') fprintf(fp,"%s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relation, p[i].birth, p[i].address);
 	}	
 	fclose(fp);
-	printf("저장됨! \n");
+	printf("=> 저장 완료\n");
 }
 int loadData(PhoneNum p[]){
 	int count=0;
 	FILE *fp;
 	fp=fopen("Phonebook.txt","rt");
 	if(fp == NULL){
-		printf("파일 없음\n");
+		printf("=> 파일 없음\n");
 		return 0;
 	}
 	for( ; ; count++){
@@ -122,7 +115,7 @@ int loadData(PhoneNum p[]){
 void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	int scount =0;
 	char search[20];
-	printf("생일을 입력하시오.:");
+	printf("=> 검색할 생일 입력 : ");
 	scanf("%s",search);
 	printf("Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
@@ -141,7 +134,7 @@ void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	int scount =0;
 	char search[100];
-	printf("주소를 입력하시오.:");
+	printf("=> 검색할 주소 입력 : ");
 	scanf("%s",search);
 	printf("Name / Phonenum / Relation / Birth / Address\n");
 	printf("============================================\n");
@@ -165,7 +158,7 @@ int selectSearch(){
 	printf("3. 그룹\n");
 	printf("4. 생일\n");
 	printf("5. 주소\n");
-	printf("=> 원하는 항목은? ");
+	printf("=> 검색할 항목은? ");
 	scanf("%d",&menu);
 	return menu;
 }
