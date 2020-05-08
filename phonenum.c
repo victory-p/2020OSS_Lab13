@@ -21,7 +21,7 @@ int createPhonenum(PhoneNum *p){
 
 void readPhonenum(PhoneNum p){
 	if(p.phonenum[0] == '-') return;
-	printf(" %s / %s / %s / %s / %s\n", p.name, p.phonenum, p.relation, p.birth, p.address);
+	printf(" %s / %s / %s / %d%d월 %d%d일 / %s\n", p.name, p.phonenum, p.relation, p.birth[0]-'0',p.birth[1]-'0',p.birth[2]-'0',p.birth[3]-'0',p.address);
 }
 
 int updatePhoneNum(PhoneNum *p){
