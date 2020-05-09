@@ -148,7 +148,17 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	}
 	if(scount==0) printf("=> 검색된 데이터 없음! \n");
 }
-	
+
+void search(PhoneNum *p, int count,int num){
+	switch(num){
+		case 1: printf("1번\n"); break;
+		case 2: printf("2번\n");break;
+		case 3: printf("3번\n");break;
+		case 4: searchBirth(p, count);break;
+		case 5: searchAddress(p, count);break;
+		default : break;
+	}
+}	
 int selectSearch(){
 	int menu;
 	printf("\n========검색 항목=========\n");
