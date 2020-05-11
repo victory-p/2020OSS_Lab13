@@ -207,7 +207,7 @@ void search(PhoneNum *p, int count,int num){
 	switch(num){
 		case 1: searchName(p,count); break;
 		case 2: searchPhonenum(p,count);break;
-		case 3: printf("3번\n");break;
+		case 3: searchrelation(p,count);break;
 		case 4: searchBirth(p, count);break;
 		case 5: searchAddress(p, count);break;
 		default : break;
