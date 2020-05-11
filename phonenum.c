@@ -117,7 +117,7 @@ void searchName(PhoneNum *p, int count){//이름 검색 함수
 	char search[10];
 	printf("=> 검색할 이름 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -136,7 +136,7 @@ void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
 	char search[12];
 	printf("=> 검색할 전화번호 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Eamil / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -155,7 +155,7 @@ void searchrelation(PhoneNum *p, int count){//관계 검색 함수
 	char search[10];
 	printf("=> 검색할 그룹 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -174,7 +174,7 @@ void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	char search[20];
 	printf("=> 검색할 생일 입력 : ");
 	scanf("%s",search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -193,7 +193,7 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	char search[100];
 	printf("=> 검색할 주소 입력 : ");
 	scanf("%s",search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -211,9 +211,9 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 void searchEmail(PhoneNum *p, int count){//주소  검색 함수
 	int scount =0;
 	char search[100];
-	printf("=> 검색할 이메일  입력 : ");
+	printf("=> 검색할 이메일 입력 : ");
 	scanf("%s",search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
