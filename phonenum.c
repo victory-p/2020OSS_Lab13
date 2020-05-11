@@ -126,7 +126,25 @@ void searchName(PhoneNum *p, int count){//이름 검색 함수
 	}
 	if(scount==0) printf("=> 검색된 데이터 없음! \n");
 }
-//void searchPhonenum(PhoneNum *p, int count){};//전화 번호  검색 함수
+
+void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
+	int scount = 0;
+	char search[12];
+	printf("=> 검색할 전화번호 입력 : ");
+	scanf("%s", search);
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum[0] != '-'){
+			if(strstr(p[i].phonenum, search)){
+				printf("%d", i+1);
+				readPhonenum(p[i]);
+				scount++;
+			}
+		}
+	}
+	if(scount == 0) printf("=> 검색된 데이터 없음!\n");
+}
 //void searchrelation(PhoneNum *p, int count){};//관계  검색 함수
 void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	int scount =0;
