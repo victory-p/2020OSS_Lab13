@@ -48,15 +48,7 @@ int main(){
 				printf("=>취소됨!\n");
 				continue;
 			}
-			switch(num){
-				case 4 :
-					searchBirth(slist,curcount);
-					break;
-				case 5 :
-					searchAddress(slist,curcount);
-					break;
-				default : break;
-			}	
+			search(slist,count,num);
 		}
 		if(menu == 0){
 			break;

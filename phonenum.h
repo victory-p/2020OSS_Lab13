@@ -23,4 +23,4 @@ void searchPhonenum(PhoneNum *p, int count);//전화 번호  검색 함수
 void searchRelation(PhoneNum *p, int count);//관계  검색 함수
 void searchBirth(PhoneNum *p, int count);//생일 검색 함수
 void searchAddress(PhoneNum *p, int count);//주소  검색 함수
-	
+void search(PhoneNum *p, int count, int num);	

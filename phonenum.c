@@ -21,7 +21,7 @@ int createPhonenum(PhoneNum *p){
 
 void readPhonenum(PhoneNum p){
 	if(p.phonenum[0] == '-') return;
-	printf(" %s / %s / %s / %s / %s\n", p.name, p.phonenum, p.relation, p.birth, p.address);
+	printf(" %s / %s / %s / %d%d월 %d%d일 / %s\n", p.name, p.phonenum, p.relation, p.birth[0]-'0',p.birth[1]-'0',p.birth[2]-'0',p.birth[3]-'0',p.address);
 }
 
 int updatePhoneNum(PhoneNum *p){
@@ -108,8 +108,43 @@ int loadData(PhoneNum p[]){
 	return count;
 }
 
-//void searchName(PhoneNum *p, int count){}; //이름 검색 함수
-//void searchPhonenum(PhoneNum *p, int count){};//전화 번호  검색 함수
+void searchName(PhoneNum *p, int count){//이름 검색 함수
+	int scount = 0;
+	char search[10];
+	printf("=> 검색할 이름 입력 : ");
+	scanf("%s", search);
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum[0] != '-'){
+			if(strstr(p[i].name, search)){
+				printf("%d", i+1);
+				readPhonenum(p[i]);
+				scount++;
+			}
+		}
+	}
+	if(scount==0) printf("=> 검색된 데이터 없음! \n");
+}
+
+void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
+	int scount = 0;
+	char search[12];
+	printf("=> 검색할 전화번호 입력 : ");
+	scanf("%s", search);
+	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum[0] != '-'){
+			if(strstr(p[i].phonenum, search)){
+				printf("%d", i+1);
+				readPhonenum(p[i]);
+				scount++;
+			}
+		}
+	}
+	if(scount == 0) printf("=> 검색된 데이터 없음!\n");
+}
 //void searchrelation(PhoneNum *p, int count){};//관계  검색 함수
 void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	int scount =0;
@@ -148,7 +183,17 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	}
 	if(scount==0) printf("=> 검색된 데이터 없음! \n");
 }
-	
+
+void search(PhoneNum *p, int count,int num){
+	switch(num){
+		case 1: searchName(p,count); break;
+		case 2: searchPhonenum(p,count);break;
+		case 3: printf("3번\n");break;
+		case 4: searchBirth(p, count);break;
+		case 5: searchAddress(p, count);break;
+		default : break;
+	}
+}	
 int selectSearch(){
 	int menu;
 	printf("\n========검색 항목=========\n");
