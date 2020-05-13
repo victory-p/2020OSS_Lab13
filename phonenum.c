@@ -136,7 +136,7 @@ void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
 	char search[12];
 	printf("=> 검색할 전화번호 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Eamil / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
