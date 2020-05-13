@@ -48,7 +48,7 @@ int main(){
 				printf("=>취소됨!\n");
 				continue;
 			}
-			search(slist,count,num);
+			search(slist,curcount,num);
 		}
 		if(menu == 0){
 			break;
