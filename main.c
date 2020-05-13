@@ -11,7 +11,7 @@ int main(){
 	curcount=count;		
 	while(1){
 		menu=selectMenu();
-		if(menu < 1 || menu > 9)break;
+		if(menu < 0 || menu > 6) printf("\n 항목이 없습니다\n 다시 입력하세요\n"); 
 		if(menu == 1){
 			listPhoneNum(slist,curcount);
 		}
@@ -51,6 +51,7 @@ int main(){
 			search(slist,curcount,num);
 		}
 		if(menu == 0){
+			printf("=>종료됨!\n");
 			break;
 		}
 	}
