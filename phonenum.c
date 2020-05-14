@@ -11,6 +11,8 @@ int createPhonenum(PhoneNum *p){
 	scanf("%s", p->relation);
 	printf("- 생일(MMDD) : ");
 	scanf("%s",p->birth);
+	printf("- 이메일: ");
+	scanf("%s",p->email);
 	printf("- 주소 : ");
 	getchar();
 	scanf("%[^\n]s", p->address);
@@ -21,7 +23,7 @@ int createPhonenum(PhoneNum *p){
 
 void readPhonenum(PhoneNum p){
 	if(p.phonenum[0] == '-') return;
-	printf(" %s / %s / %s / %d%d월 %d%d일 / %s\n", p.name, p.phonenum, p.relation, p.birth[0]-'0',p.birth[1]-'0',p.birth[2]-'0',p.birth[3]-'0',p.address);
+	printf(" %s / %s / %s / %d%d월 %d%d일 / %s / %s\n", p.name, p.phonenum, p.relation, p.birth[0]-'0',p.birth[1]-'0',p.birth[2]-'0',p.birth[3]-'0',p.email,p.address);
 }
 
 int updatePhoneNum(PhoneNum *p){
@@ -33,6 +35,8 @@ int updatePhoneNum(PhoneNum *p){
         scanf("%s", p->relation);
         printf("- 생일(MMDD) : ");
         scanf("%s",p->birth);
+	printf("- 이메일 : ");
+	scanf("%s",p->email);
         printf("- 주소 : ");
         getchar();
         scanf("%[^\n]s", p->address);
@@ -63,7 +67,7 @@ int selectMenu(){
 	return menu;
 }
 void listPhoneNum(PhoneNum *p,int count){
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -86,7 +90,7 @@ void saveData(PhoneNum p[], int count){
 	FILE *fp;
 	fp=fopen("Phonebook.txt","wt");
 	for(int i=0;i<count; i++){
-		if(p[i].phonenum[0] != '-') fprintf(fp,"%s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relation, p[i].birth, p[i].address);
+		if(p[i].phonenum[0] != '-') fprintf(fp,"%s %s %s %s %s %s\n", p[i].name, p[i].phonenum, p[i].relation, p[i].birth,p[i].email, p[i].address);
 	}	
 	fclose(fp);
 	printf("=> 저장 완료\n");
@@ -100,7 +104,7 @@ int loadData(PhoneNum p[]){
 		return 0;
 	}
 	for( ; ; count++){
-		fscanf(fp,"%s %s %s %s %[^\n]s\n", p[count].name, p[count].phonenum, p[count].relation, p[count].birth, p[count].address);
+		fscanf(fp,"%s %s %s %s %s %[^\n]s\n", p[count].name, p[count].phonenum, p[count].relation, p[count].birth,p[count].email, p[count].address);
 	if(feof(fp)) break;
 	}
 	fclose(fp);
@@ -113,7 +117,7 @@ void searchName(PhoneNum *p, int count){//이름 검색 함수
 	char search[10];
 	printf("=> 검색할 이름 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -132,7 +136,7 @@ void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
 	char search[12];
 	printf("=> 검색할 전화번호 입력 : ");
 	scanf("%s", search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -145,13 +149,32 @@ void searchPhonenum(PhoneNum *p, int count){//전화 번호 검색 함수
 	}
 	if(scount == 0) printf("=> 검색된 데이터 없음!\n");
 }
-//void searchrelation(PhoneNum *p, int count){};//관계  검색 함수
+
+void searchrelation(PhoneNum *p, int count){//관계 검색 함수
+	int scount = 0;
+	char search[10];
+	printf("=> 검색할 그룹 입력 : ");
+	scanf("%s", search);
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum[0] != '-'){
+			if(strstr(p[i].relation, search)){
+				printf("%d", i+1);
+				readPhonenum(p[i]);
+				scount++;
+			}
+		}
+	}
+	if(scount == 0) printf("=> 검색된 데이터 없음!\n");
+}
+
 void searchBirth(PhoneNum *p, int count){//생일 검색 함수
 	int scount =0;
 	char search[20];
 	printf("=> 검색할 생일 입력 : ");
 	scanf("%s",search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -170,7 +193,7 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	char search[100];
 	printf("=> 검색할 주소 입력 : ");
 	scanf("%s",search);
-	printf("No / Name / Phonenum / Relation / Birth / Address\n");
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
 	printf("============================================\n");
 	for(int i=0; i<count; i++){
 		if(p[i].phonenum[0] != '-'){
@@ -184,13 +207,33 @@ void searchAddress(PhoneNum *p, int count){//주소  검색 함수
 	if(scount==0) printf("=> 검색된 데이터 없음! \n");
 }
 
+
+void searchEmail(PhoneNum *p, int count){//주소  검색 함수
+	int scount =0;
+	char search[100];
+	printf("=> 검색할 이메일 입력 : ");
+	scanf("%s",search);
+	printf("No / Name / Phonenum / Relation / Birth / Email / Address\n");
+	printf("============================================\n");
+	for(int i=0; i<count; i++){
+		if(p[i].phonenum[0] != '-'){
+			if(strstr(p[i].email,search)){
+				printf("%d",i+1);
+				readPhonenum(p[i]);
+				scount++;
+			}
+		}
+	}
+	if(scount==0) printf("=> 검색된 데이터 없음! \n");
+}
 void search(PhoneNum *p, int count,int num){
 	switch(num){
 		case 1: searchName(p,count); break;
 		case 2: searchPhonenum(p,count);break;
-		case 3: printf("3번\n");break;
+		case 3: searchrelation(p,count);break;
 		case 4: searchBirth(p, count);break;
-		case 5: searchAddress(p, count);break;
+		case 5: searchEmail(p, count);break;
+		case 6: searchAddress(p, count); break;
 		default : break;
 	}
 }	
@@ -201,7 +244,8 @@ int selectSearch(){
 	printf("2. 전화번호\n");
 	printf("3. 그룹\n");
 	printf("4. 생일\n");
-	printf("5. 주소\n");
+	printf("5. 이메일\n");
+	printf("6. 주소\n");
 	printf("=> 검색할 항목은? ");
 	scanf("%d",&menu);
 	return menu;
